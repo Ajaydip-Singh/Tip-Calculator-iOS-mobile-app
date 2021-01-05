@@ -25,8 +25,6 @@ class ViewController: UIViewController {
         
         let bill = Float(billField.text!) ?? 0
         
-        tipPercentageLabel.text = String(format: "$%.0f", tipSlider.value)
-        
         let tip = bill * tipSlider.value/100
         
         let total = bill + tip
@@ -35,6 +33,11 @@ class ViewController: UIViewController {
         
         totalLabel.text = String(format: "$%.2f", total)
         
+    }
+    
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        tipSlider.value = roundf(tipSlider.value);
+        tipPercentageLabel.text = String(format: "%.0f%%", tipSlider.value)
     }
     
     @IBAction func onTap(_ sender: Any) {
