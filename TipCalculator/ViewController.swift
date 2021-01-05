@@ -20,6 +20,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         billField.becomeFirstResponder()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    
+        let defaults = UserDefaults.standard
+        let defaultTip = Float(defaults.string(forKey: "tipPercentage") ?? "15")
+        tipSlider.value = defaultTip ?? 15.0
+        tipPercentageLabel.text = String(format: "%.0f%%", tipSlider.value)
+    }
 
     @IBAction func calculateTip(_ sender: Any) {
         
@@ -32,8 +41,10 @@ class ViewController: UIViewController {
         tipLabel.text = String(format: "$%.2f", tip)
         
         totalLabel.text = String(format: "$%.2f", total)
-        
     }
+    
+
+    
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         tipSlider.value = roundf(tipSlider.value);
