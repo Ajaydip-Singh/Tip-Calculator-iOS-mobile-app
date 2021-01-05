@@ -37,16 +37,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="JpN-5m-kJ6">
-                                <rect key="frame" x="275" y="140" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                <connections>
-                                    <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="editingChanged" id="uvs-ms-ucD"/>
-                                </connections>
-                            </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cpE-9n-Fkt">
                                 <rect key="frame" x="42" y="335" width="330" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -80,6 +70,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="right" adjustsFontForContentSizeCategory="YES" minimumFontSize="19" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JpN-5m-kJ6">
+                                <rect key="frame" x="255" y="144" width="117" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="editingChanged" id="uvs-ms-ucD"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.93950187851683775" green="0.97680975757971855" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -89,7 +89,13 @@
                             <outletCollection property="gestureRecognizers" destination="IEb-8y-NJJ" appends="YES" id="OJC-lU-CIp"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Tip Calculator" id="Qmf-em-t1V"/>
+                    <navigationItem key="navigationItem" title="Tip Calculator" id="Qmf-em-t1V">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="ndL-Fy-NEF">
+                            <connections>
+                                <segue destination="5Qe-kS-bSJ" kind="show" id="KoV-UD-8zt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="billField" destination="JpN-5m-kJ6" id="v8e-0o-lns"/>
                         <outlet property="tipControl" destination="x95-fP-Qrc" id="5kX-OK-yIa"/>
@@ -105,6 +111,22 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="88.392857142857139"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="LGt-q3-Bzd">
+            <objects>
+                <viewController id="5Qe-kS-bSJ" customClass="SettingsViewController" customModule="TipCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lBj-8z-6Sa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="OXJ-oA-Po1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nBO-Gv-uiC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F8J-Cs-fmg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1871" y="88"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="scS-j9-cq5">
@@ -126,6 +148,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
